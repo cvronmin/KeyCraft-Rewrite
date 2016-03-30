@@ -33,10 +33,8 @@ public class SkillUtils {
 				SkillNetwork.Channel.sendTo(SkillNetwork.createSyncAuroraPointPacket(player), (EntityPlayerMP)player);
 		} catch (NullPointerException e) {
 			FMLLog.log(KeyCraft_Rewrite.MODNAME, Level.WARN, "WARNING: recevied null aurora point.");
-			initializeAuroraPoint(player);
 		} catch (Exception e) {
 			FMLLog.log(KeyCraft_Rewrite.MODNAME, Level.WARN, "WARNING: unexpected exception was thrown.");
-			initializeAuroraPoint(player);
 		}
 	}
 	
