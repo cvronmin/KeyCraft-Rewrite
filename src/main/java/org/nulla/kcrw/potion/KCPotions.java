@@ -1,0 +1,23 @@
+package org.nulla.kcrw.potion;
+
+import java.util.ArrayList;
+
+import org.nulla.kcrw.KCResources;
+
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+/** 声明所有效果 */
+public class KCPotions {
+
+	public static PotionTest test;
+	public static PoisonResistance poisonResistance;
+	public static PotionAuroraRegeneration auroraRegeneration;
+	
+	public static void initPotions()
+	{
+		//test = new PotionTest("kcrw.potion.test", null);
+		poisonResistance = new PoisonResistance("kcrw.potion.poisonResistance", KCResources.potion_poisonResistance);
+		auroraRegeneration = new PotionAuroraRegeneration("kcrw.potion.auroraRegeneration", KCResources.potion_aurora_regeneration);
+	}
+	
+}

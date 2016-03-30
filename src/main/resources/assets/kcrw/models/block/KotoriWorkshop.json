@@ -1,0 +1,11 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "blocks/planks_oak",
+    "up": "kcrw:blocks/kotori_workshop_top",
+    "north": "kcrw:blocks/kotori_workshop_front",
+    "south": "kcrw:blocks/kotori_workshop_front",
+    "west": "kcrw:blocks/kotori_workshop_side",
+    "east": "kcrw:blocks/kotori_workshop_side"
+  }
+}
