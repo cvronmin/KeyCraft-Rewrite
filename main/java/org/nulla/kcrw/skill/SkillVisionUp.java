@@ -2,12 +2,12 @@ package org.nulla.kcrw.skill;
 
 import java.util.Random;
 
-import org.nulla.kcrw.KCMusicHelper;
 import org.nulla.kcrw.KCResources;
 import org.nulla.kcrw.KeyCraft_Rewrite;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.potion.*;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 
 public class SkillVisionUp extends Skill {

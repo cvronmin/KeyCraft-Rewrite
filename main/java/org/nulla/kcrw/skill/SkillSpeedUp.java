@@ -2,7 +2,6 @@ package org.nulla.kcrw.skill;
 
 import java.util.Random;
 
-import org.nulla.kcrw.KCMusicHelper;
 import org.nulla.kcrw.KCResources;
 import org.nulla.kcrw.KeyCraft_Rewrite;
 

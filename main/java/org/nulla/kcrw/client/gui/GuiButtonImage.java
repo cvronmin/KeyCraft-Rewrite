@@ -1,4 +1,4 @@
-package org.nulla.kcrw.gui.part;
+package org.nulla.kcrw.client.gui;
 
 import org.lwjgl.opengl.GL11;
 import org.nulla.kcrw.KCUtils;

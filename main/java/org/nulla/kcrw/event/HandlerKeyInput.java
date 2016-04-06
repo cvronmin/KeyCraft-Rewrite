@@ -2,7 +2,7 @@ package org.nulla.kcrw.event;
 
 import org.nulla.kcrw.KCClientProxy;
 import org.nulla.kcrw.KCUtils;
-import org.nulla.kcrw.gui.GuiSwitchSkill;
+import org.nulla.kcrw.client.gui.GuiSwitchSkill;
 import org.nulla.kcrw.skill.Skill;
 import org.nulla.kcrw.skill.SkillUtils;
 

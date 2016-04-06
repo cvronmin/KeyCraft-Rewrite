@@ -1,6 +1,8 @@
-package org.nulla.kcrw;
+package org.nulla.kcrw.client;
 
 import java.lang.reflect.Field;
+
+import org.nulla.kcrw.KCUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.ISound;

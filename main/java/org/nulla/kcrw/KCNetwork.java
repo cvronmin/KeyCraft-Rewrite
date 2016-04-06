@@ -2,7 +2,7 @@ package org.nulla.kcrw;
 
 import java.io.IOException;
 
-import org.nulla.kcrw.gui.GuiKotoriWorkshop;
+import org.nulla.kcrw.client.gui.GuiKotoriWorkshop;
 import org.nulla.kcrw.item.KCItemBase;
 
 import io.netty.buffer.ByteBufInputStream;

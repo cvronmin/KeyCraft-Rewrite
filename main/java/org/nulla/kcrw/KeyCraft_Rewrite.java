@@ -1,12 +1,12 @@
 package org.nulla.kcrw;
 
+import org.nulla.kcrw.client.KCMusicHelper;
 import org.nulla.kcrw.event.HandlerChatCheating;
 import org.nulla.kcrw.potion.KCPotion;
 import org.nulla.kcrw.skill.SkillNetwork;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -20,7 +20,7 @@ public class KeyCraft_Rewrite {
 	
 	public static final String MODID = "kcrw";
 	public static final String MODNAME = "KeyCraft Rewrite Ver.";
-    public static final String VERSION = "Demo20160323";
+    public static final String VERSION = "Demo20160403";
     
     @SidedProxy(clientSide = "org.nulla.kcrw.KCClientProxy",
             	serverSide = "org.nulla.kcrw.KCCommonProxy")

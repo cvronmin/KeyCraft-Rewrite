@@ -23,7 +23,7 @@ public class SkillUtils {
 	
 	/** 设置欧若拉点，如果在服务端会发同步包 */
 	public static void setAuroraPoint(EntityPlayer player, int point) {
-		try {
+		//try {
 			if (point < 0)
 				point = 0;
 			else if (point > MAX_AURORA_POINT)
@@ -31,11 +31,11 @@ public class SkillUtils {
 			player.getEntityData().setInteger("AuroraPoint", point);
 			if (player instanceof EntityPlayerMP)
 				SkillNetwork.Channel.sendTo(SkillNetwork.createSyncAuroraPointPacket(player), (EntityPlayerMP)player);
-		} catch (NullPointerException e) {
+		/*} catch (NullPointerException e) {
 			FMLLog.log(KeyCraft_Rewrite.MODNAME, Level.WARN, "WARNING: recevied null aurora point.");
 		} catch (Exception e) {
 			FMLLog.log(KeyCraft_Rewrite.MODNAME, Level.WARN, "WARNING: unexpected exception was thrown.");
-		}
+		}*/
 	}
 	
 	/** 改变欧若拉点，如果在服务端会发同步包 */

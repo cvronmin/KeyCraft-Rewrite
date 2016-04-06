@@ -1,7 +1,6 @@
-package org.nulla.kcrw.gui;
+package org.nulla.kcrw.client.gui;
 
 import org.nulla.kcrw.KCUtils;
-import org.nulla.kcrw.gui.part.GuiButtonImage;
 
 import net.minecraft.client.gui.GuiScreen;
 
