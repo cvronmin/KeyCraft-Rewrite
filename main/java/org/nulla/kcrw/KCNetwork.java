@@ -2,6 +2,7 @@ package org.nulla.kcrw;
 
 import java.io.IOException;
 
+import org.nulla.kcrw.client.KCClientUtils;
 import org.nulla.kcrw.client.gui.GuiKotoriWorkshop;
 import org.nulla.kcrw.item.KCItemBase;
 
@@ -70,7 +71,7 @@ public class KCNetwork
 	@SubscribeEvent
 	public void onClientPacket(ClientCustomPacketEvent event)
 	{
-		EntityPlayer player = KCUtils.getPlayerCl();
+		EntityPlayer player = KCClientUtils.getPlayerCl();
 		
 		ByteBufInputStream stream = new ByteBufInputStream(event.packet.payload());
 		try

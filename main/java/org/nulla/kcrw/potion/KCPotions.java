@@ -1,10 +1,6 @@
 package org.nulla.kcrw.potion;
 
-import java.util.ArrayList;
-
 import org.nulla.kcrw.KCResources;
-
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /** 声明所有效果 */
 public class KCPotions {

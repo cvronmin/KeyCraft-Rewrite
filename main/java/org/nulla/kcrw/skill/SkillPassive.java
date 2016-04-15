@@ -2,7 +2,6 @@ package org.nulla.kcrw.skill;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.nbt.NBTTagCompound;
 
 public class SkillPassive extends Skill {
 

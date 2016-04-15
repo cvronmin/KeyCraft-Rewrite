@@ -1,6 +1,6 @@
 package org.nulla.kcrw.client.gui;
 
-import org.nulla.kcrw.KCUtils;
+import org.nulla.kcrw.client.KCClientUtils;
 import org.nulla.kcrw.skill.Skill;
 import org.nulla.kcrw.skill.SkillUtils;
 import org.nulla.kcrw.skill.Skills;
@@ -59,7 +59,7 @@ public class GuiSwitchSkill extends KCGuiBase {
 	public void drawScreen(int par1, int par2, float par3) {
 		this.drawDefaultBackground();
 		drawRect((int) (width * 0.2), (int) (height * 0.2), (int) (width * 0.8), (int) (height * 0.8), 0x7F000000);
-		KCUtils.initDrawerState();
+		KCClientUtils.initDrawerState();
 		super.drawScreen(par1, par2, par3);
 	}
 

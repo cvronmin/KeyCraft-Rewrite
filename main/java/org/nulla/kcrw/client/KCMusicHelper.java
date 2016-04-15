@@ -24,7 +24,7 @@ public class KCMusicHelper {
 
 	/** 停止当前BGM、MC原版BGM并播放新的BGM */
 	public static void playBgm(ResourceLocation location) {
-		SoundHandler soundHandler = KCUtils.getMC().getSoundHandler();
+		SoundHandler soundHandler = KCClientUtils.getMC().getSoundHandler();
 		if (isBgmPlaying()) {
 			soundHandler.stopSound(currentSound);
 		}
@@ -37,7 +37,7 @@ public class KCMusicHelper {
 	@SubscribeEvent
 	public void onClientTick(ClientTickEvent event)
 	{
-		Minecraft mc = KCUtils.getMC();
+		Minecraft mc = KCClientUtils.getMC();
 		if (event.phase == TickEvent.Phase.END
 			&& !mc.isGamePaused()
 			&& isBgmPlaying()
@@ -101,7 +101,7 @@ public class KCMusicHelper {
 			return;
 		if (isBgmPlaying())
 		{
-			KCUtils.getMC().getSoundHandler().stopSound(currentSound);
+			KCClientUtils.getMC().getSoundHandler().stopSound(currentSound);
 			currentSound = null;
 		}
 		

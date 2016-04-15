@@ -1,7 +1,6 @@
 package org.nulla.kcrw.potion;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 /** 测试用的效果，输出Hello world */

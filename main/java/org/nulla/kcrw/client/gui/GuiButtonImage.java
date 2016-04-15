@@ -1,7 +1,7 @@
 package org.nulla.kcrw.client.gui;
 
 import org.lwjgl.opengl.GL11;
-import org.nulla.kcrw.KCUtils;
+import org.nulla.kcrw.client.KCClientUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
@@ -74,9 +74,9 @@ public class GuiButtonImage extends GuiButton {
             	drawRect(posX, posY + height -1, posX + width, posY + height, 0xFF000000);
             }
 
-            KCUtils.initDrawerState();
+            KCClientUtils.initDrawerState();
             
-            KCUtils.drawScaledCustomSizeModalRect(posX, posY, 0, 0, 64, 64, width, height, 64, 64);
+            KCClientUtils.drawScaledCustomSizeModalRect(posX, posY, 0, 0, 64, 64, width, height, 64, 64);
             this.mouseDragged(mc, mouseX, mouseY);
         }
         

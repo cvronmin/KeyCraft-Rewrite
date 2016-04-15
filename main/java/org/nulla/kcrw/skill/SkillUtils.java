@@ -1,12 +1,8 @@
 package org.nulla.kcrw.skill;
 
-import org.apache.logging.log4j.Level;
-import org.nulla.kcrw.KeyCraft_Rewrite;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.fml.common.FMLLog;
 
 /** 实现关于技能的其他部分（欧若拉点、技能槽） */
 public class SkillUtils {

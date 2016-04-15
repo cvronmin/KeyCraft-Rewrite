@@ -3,6 +3,7 @@ package org.nulla.kcrw.skill;
 import java.io.IOException;
 
 import org.nulla.kcrw.KCUtils;
+import org.nulla.kcrw.client.KCClientUtils;
 
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
@@ -154,7 +155,7 @@ public class SkillNetwork
 	@SubscribeEvent
 	public void onClientPacket(ClientCustomPacketEvent event)
 	{
-		EntityPlayer player = KCUtils.getPlayerCl();
+		EntityPlayer player = KCClientUtils.getPlayerCl();
 		
 		ByteBufInputStream stream = new ByteBufInputStream(event.packet.payload());
 		try

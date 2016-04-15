@@ -2,15 +2,21 @@ package org.nulla.kcrw;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
+import org.nulla.kcrw.client.KCClientUtils;
+import org.nulla.kcrw.client.KCUniteRenderFactory;
+import org.nulla.kcrw.entity.EntityBaseball;
 import org.nulla.kcrw.event.HandlerDrawHUD;
 import org.nulla.kcrw.event.HandlerKeyInput;
 import org.nulla.kcrw.event.HandlerLivingAttack;
 import org.nulla.kcrw.event.HandlerLivingDeath;
 import org.nulla.kcrw.event.HandlerPlayerTick;
 
+import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -25,10 +31,15 @@ public class KCClientProxy extends KCCommonProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		Display.setTitle("Welcome to KeyCraft's World!");
+		
+		// 注册渲染器
+		System.out.println(KCClientUtils.getMC().getRenderItem());
+		RenderingRegistry.registerEntityRenderingHandler(EntityBaseball.class, new KCUniteRenderFactory<EntityBaseball>(RenderSnowball.class, new Object[]{((Item)KCItems.baseball)}, true));
 	}
 	
 	@Override
 	public void init(FMLInitializationEvent event) {
+		System.out.println(KCClientUtils.getMC().getRenderItem());
 		// 注册GUI、用户输入事件
     	MinecraftForge.EVENT_BUS.register(new HandlerDrawHUD());
     	MinecraftForge.EVENT_BUS.register(new HandlerKeyInput());
@@ -40,12 +51,11 @@ public class KCClientProxy extends KCCommonProxy {
 		//注册KeyBinding
 		ClientRegistry.registerKeyBinding(kbSkill1);
 		ClientRegistry.registerKeyBinding(kbSkill2);
-		
 	}
 	
 	@Override
 	public void postInit(FMLPostInitializationEvent event) {
-		
+		System.out.println(KCClientUtils.getMC().getRenderItem());
 	}
 
 }

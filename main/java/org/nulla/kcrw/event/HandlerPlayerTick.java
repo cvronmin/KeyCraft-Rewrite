@@ -1,12 +1,15 @@
 package org.nulla.kcrw.event;
 
-import org.nulla.kcrw.item.*;
+import org.nulla.kcrw.item.ItemAuroraArmor;
+import org.nulla.kcrw.item.ItemAuroraSword;
+import org.nulla.kcrw.item.ItemAuroraTool;
 import org.nulla.kcrw.skill.Skills;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent.*;
+import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
+import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 public class HandlerPlayerTick {
 	

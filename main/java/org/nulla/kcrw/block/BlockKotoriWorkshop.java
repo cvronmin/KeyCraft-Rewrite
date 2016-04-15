@@ -1,6 +1,6 @@
 package org.nulla.kcrw.block;
 
-import org.nulla.kcrw.KCUtils;
+import org.nulla.kcrw.client.KCClientUtils;
 import org.nulla.kcrw.client.gui.GuiKotoriWorkshop;
 
 import net.minecraft.block.material.Material;
@@ -21,7 +21,7 @@ public class BlockKotoriWorkshop extends KCBlockBase {
 		if (!worldIn.isRemote) {
 			return true;
 		}
-		KCUtils.getMC().displayGuiScreen(new GuiKotoriWorkshop(KCUtils.getMC().currentScreen, playerIn));
+		KCClientUtils.getMC().displayGuiScreen(new GuiKotoriWorkshop(KCClientUtils.getMC().currentScreen, playerIn));
 		return true;
     }
 

@@ -1,6 +1,6 @@
 package org.nulla.kcrw.client.gui;
 
-import org.nulla.kcrw.KCUtils;
+import org.nulla.kcrw.client.KCClientUtils;
 
 import net.minecraft.client.gui.GuiScreen;
 
@@ -22,7 +22,7 @@ public abstract class KCGuiBase extends GuiScreen {
     	for (int k = 0; k < this.buttonList.size(); ++k) {
     		((GuiButtonImage)this.buttonList.get(k)).drawButton(this.mc, par1, par2);
     	}
-        KCUtils.initDrawerState();      
+    	KCClientUtils.initDrawerState();      
     }
     
 	protected void actionPerformed(GuiButtonImage button) {

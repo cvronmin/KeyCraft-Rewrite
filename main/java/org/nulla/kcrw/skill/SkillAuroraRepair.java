@@ -1,8 +1,8 @@
 package org.nulla.kcrw.skill;
 
-import net.minecraft.util.ResourceLocation;
-
 import org.nulla.kcrw.KeyCraft_Rewrite;
+
+import net.minecraft.util.ResourceLocation;
 
 public class SkillAuroraRepair extends SkillPassive {
 

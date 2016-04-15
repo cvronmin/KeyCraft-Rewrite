@@ -1,6 +1,7 @@
 package org.nulla.kcrw.event;
 
 import org.nulla.kcrw.KCUtils;
+import org.nulla.kcrw.client.KCClientUtils;
 
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -13,8 +14,8 @@ public class HandlerDrawHUD {
 		int width = event.resolution.getScaledWidth();
 		int height = event.resolution.getScaledHeight();
 		
-		KCUtils.drawAuroraStrip(width, height);
-		KCUtils.drawSkillSlot(width, height);
+		KCClientUtils.drawAuroraStrip(width, height);
+		KCClientUtils.drawSkillSlot(width, height);
 	}
 
 }

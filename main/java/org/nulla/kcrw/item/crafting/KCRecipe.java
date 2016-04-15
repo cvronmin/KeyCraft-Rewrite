@@ -2,7 +2,8 @@ package org.nulla.kcrw.item.crafting;
 
 import org.nulla.kcrw.KCItems;
 
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class KCRecipe {
 	

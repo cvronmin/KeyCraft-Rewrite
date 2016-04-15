@@ -1,8 +1,8 @@
 package org.nulla.kcrw;
 
-import net.minecraftforge.common.util.*;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraftforge.common.util.EnumHelper;
 
 public class KCMaterials {
 	

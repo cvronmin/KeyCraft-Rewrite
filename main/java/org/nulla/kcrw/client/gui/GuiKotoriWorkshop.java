@@ -3,6 +3,7 @@ package org.nulla.kcrw.client.gui;
 import org.nulla.kcrw.KCNetwork;
 import org.nulla.kcrw.KCResources;
 import org.nulla.kcrw.KCUtils;
+import org.nulla.kcrw.client.KCClientUtils;
 import org.nulla.kcrw.item.KCItemBase;
 import org.nulla.kcrw.item.crafting.KCRecipe;
 import org.nulla.kcrw.skill.SkillUtils;
@@ -54,7 +55,7 @@ public class GuiKotoriWorkshop extends KCGuiBase {
 	public void drawScreen(int par1, int par2, float par3) {
 		this.drawDefaultBackground();
 		mc.renderEngine.bindTexture(KCResources.gui_kotori_workshop);
-		KCUtils.drawScaledCustomSizeModalRect(0, 0, 0, 0, 1280, 1200, width, height, 1280, 1200);
+		KCClientUtils.drawScaledCustomSizeModalRect(0, 0, 0, 0, 1280, 1200, width, height, 1280, 1200);
 
 		super.drawScreen(par1, par2, par3);
 
@@ -67,7 +68,7 @@ public class GuiKotoriWorkshop extends KCGuiBase {
 
 			// 这是一条竖线
 			drawRect(zhong, shang, zhong + 1, xia, 0xFF000000);
-			KCUtils.initDrawerState();
+			KCClientUtils.initDrawerState();
 
 			if (currentCraftItem != null) {
 
@@ -110,7 +111,7 @@ public class GuiKotoriWorkshop extends KCGuiBase {
 				String info = "Aurora: " + aurora_required + " / " + aurora;
 				fontRendererObj.drawStringWithShadow(info, zhong + 10, shang + 125, color);
 
-				KCUtils.initDrawerState();
+				KCClientUtils.initDrawerState();
 			}
 		}
 	}
