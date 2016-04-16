@@ -33,13 +33,11 @@ public class KCClientProxy extends KCCommonProxy {
 		Display.setTitle("Welcome to KeyCraft's World!");
 		
 		// 注册渲染器
-		System.out.println(KCClientUtils.getMC().getRenderItem());
-		RenderingRegistry.registerEntityRenderingHandler(EntityBaseball.class, new KCUniteRenderFactory<EntityBaseball>(RenderSnowball.class, new Object[]{((Item)KCItems.baseball)}, true));
+		KCRenderer.init();
 	}
 	
 	@Override
 	public void init(FMLInitializationEvent event) {
-		System.out.println(KCClientUtils.getMC().getRenderItem());
 		// 注册GUI、用户输入事件
     	MinecraftForge.EVENT_BUS.register(new HandlerDrawHUD());
     	MinecraftForge.EVENT_BUS.register(new HandlerKeyInput());
@@ -55,7 +53,7 @@ public class KCClientProxy extends KCCommonProxy {
 	
 	@Override
 	public void postInit(FMLPostInitializationEvent event) {
-		System.out.println(KCClientUtils.getMC().getRenderItem());
+		
 	}
 
 }
