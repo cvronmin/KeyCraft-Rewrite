@@ -1,6 +1,4 @@
-package org.nulla.kcrw.common.MCACommonLibrary.math;
-
-import java.lang.Math;
+package org.nulla.kcrw.mcalib.common.math;
 
 /**
  * A 4 element unit quaternion represented by single precision floating

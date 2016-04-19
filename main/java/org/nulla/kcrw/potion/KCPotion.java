@@ -3,6 +3,8 @@ package org.nulla.kcrw.potion;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
+import org.nulla.kcrw.KeyCraft_Rewrite;
+
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
@@ -45,7 +47,7 @@ public class KCPotion extends Potion {
 	public final ResourceLocation mIcon;
 		
 	public KCPotion(String name, ResourceLocation icon) {
-		super(icon, false, 0);
+		super(new ResourceLocation(KeyCraft_Rewrite.MODID, name.replace("kcrw.potion.", "")), false, 0);
 		
 		this.setPotionName(name);
 		this.mIcon = icon;

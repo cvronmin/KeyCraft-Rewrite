@@ -1,5 +1,4 @@
-package org.nulla.kcrw.common.MCACommonLibrary.math; import java.io.IOException;
-import java.util.logging.Logger;
+package org.nulla.kcrw.mcalib.common.math; import java.util.logging.Logger;
 
 /**
  * Vector3f defines a Vector for a three float value tuple.

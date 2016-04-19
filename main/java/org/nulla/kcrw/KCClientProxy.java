@@ -2,21 +2,16 @@ package org.nulla.kcrw;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
-import org.nulla.kcrw.client.KCClientUtils;
-import org.nulla.kcrw.client.KCUniteRenderFactory;
-import org.nulla.kcrw.entity.EntityBaseball;
+import org.nulla.kcrw.common.KCEffectHandler;
 import org.nulla.kcrw.event.HandlerDrawHUD;
 import org.nulla.kcrw.event.HandlerKeyInput;
 import org.nulla.kcrw.event.HandlerLivingAttack;
 import org.nulla.kcrw.event.HandlerLivingDeath;
 import org.nulla.kcrw.event.HandlerPlayerTick;
 
-import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -42,6 +37,7 @@ public class KCClientProxy extends KCCommonProxy {
     	MinecraftForge.EVENT_BUS.register(new HandlerDrawHUD());
     	MinecraftForge.EVENT_BUS.register(new HandlerKeyInput());
     	MinecraftForge.EVENT_BUS.register(new HandlerPlayerTick());
+    	MinecraftForge.EVENT_BUS.register(new KCEffectHandler());
 		MinecraftForge.EVENT_BUS.register(new HandlerLivingAttack());
 		MinecraftForge.EVENT_BUS.register(new HandlerLivingDeath());
 		KCBlocks.InitBlockRenderer();

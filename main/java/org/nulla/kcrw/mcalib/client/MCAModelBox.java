@@ -1,4 +1,4 @@
-package org.nulla.kcrw.client.MCAClientLibrary;
+package org.nulla.kcrw.mcalib.client;
 
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;

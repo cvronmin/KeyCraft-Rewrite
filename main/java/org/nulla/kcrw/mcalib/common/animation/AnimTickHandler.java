@@ -1,8 +1,8 @@
-package org.nulla.kcrw.common.MCACommonLibrary.animation;
+package org.nulla.kcrw.mcalib.common.animation;
 
 import java.util.ArrayList;
 
-import org.nulla.kcrw.common.MCACommonLibrary.IMCAnimatedEntity;
+import org.nulla.kcrw.mcalib.common.IMCAnimatedEntity;
 
 import net.minecraft.entity.Entity;
 import net.minecraftforge.common.MinecraftForge;
