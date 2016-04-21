@@ -34,8 +34,9 @@ public abstract class KCEntityThrowable extends Entity implements IProjectile {
 	protected EntityLivingBase thrower;
 	private String throwerName;
 	private int ticksInGround;
-	private int ticksInAir;
+	protected int ticksInAir;
 	protected float mGravity = 0.03F;
+	protected float velocityDecreaseRate = 0.99F;
 
 	public KCEntityThrowable(World world, float width, float height) {
 		super(world);
@@ -140,31 +141,27 @@ public abstract class KCEntityThrowable extends Entity implements IProjectile {
 			--this.throwableShake;
 		}
 
-		if (this.inGround)
-        {
-            if (this.worldObj.getBlockState(new BlockPos(this.tileX, this.tileY, this.tileZ)).getBlock() == this.field_145785_f)
-            {
-                ++this.ticksInGround;
+		if (this.inGround) {
+			if (this.worldObj.getBlockState(new BlockPos(this.tileX, this.tileY, this.tileZ))
+					.getBlock() == this.field_145785_f) {
+				++this.ticksInGround;
 
-                if (this.ticksInGround == 1200)
-                {
-                    this.setDead();
-                }
+				if (this.ticksInGround == 1200) {
+					this.setDead();
+				}
 
-                return;
-            }
+				return;
+			}
 
-            this.inGround = false;
-            this.motionX *= (double)(this.rand.nextFloat() * 0.2F);
-            this.motionY *= (double)(this.rand.nextFloat() * 0.2F);
-            this.motionZ *= (double)(this.rand.nextFloat() * 0.2F);
-            this.ticksInGround = 0;
-            this.ticksInAir = 0;
-        }
-        else
-        {
-            ++this.ticksInAir;
-        }
+			this.inGround = false;
+			this.motionX *= (double) (this.rand.nextFloat() * 0.2F);
+			this.motionY *= (double) (this.rand.nextFloat() * 0.2F);
+			this.motionZ *= (double) (this.rand.nextFloat() * 0.2F);
+			this.ticksInGround = 0;
+			this.ticksInAir = 0;
+		} else {
+			++this.ticksInAir;
+		}
 
 		Vec3 vec3 = new Vec3(this.posX, this.posY, this.posZ);
 		Vec3 vec31 = new Vec3(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
@@ -243,7 +240,7 @@ public abstract class KCEntityThrowable extends Entity implements IProjectile {
 
 		this.rotationPitch = this.prevRotationPitch + (this.rotationPitch - this.prevRotationPitch) * 0.2F;
 		this.rotationYaw = this.prevRotationYaw + (this.rotationYaw - this.prevRotationYaw) * 0.2F;
-		float f2 = 0.99F;
+		float f2 = velocityDecreaseRate;
 		float f3 = this.getGravityVelocity();
 
 		if (this.isInWater()) {
@@ -256,14 +253,16 @@ public abstract class KCEntityThrowable extends Entity implements IProjectile {
 
 			f2 = 0.8F;
 		}
-
+		// 速度衰减
 		this.motionX *= (double) f2;
 		this.motionY *= (double) f2;
 		this.motionZ *= (double) f2;
-		// 不因为重力下降
+		// 因为重力下降
 		this.motionY -= (double) getGravityVelocity();
 		this.setPosition(this.posX, this.posY, this.posZ);
 		if (this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ <= 0.0064F)
+			this.setDead();
+		if (this.ticksInAir >= 1200)
 			this.setDead();
 	}
 

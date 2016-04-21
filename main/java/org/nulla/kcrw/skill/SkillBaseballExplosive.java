@@ -10,9 +10,9 @@ import org.nulla.kcrw.entity.EntityBaseball;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
-public class SkillExplosiveBaseball extends Skill {
+public class SkillBaseballExplosive extends Skill {
 	
-	public SkillExplosiveBaseball(String name, int auroraRequired, int auroraCost, int cd) {
+	public SkillBaseballExplosive(String name, int auroraRequired, int auroraCost, int cd) {
 		super(name, auroraRequired, auroraCost, cd);
 		this.mIcon = new ResourceLocation(KeyCraft_Rewrite.MODID, "textures/icons/skills/explosive_baseball.png");
 	}
