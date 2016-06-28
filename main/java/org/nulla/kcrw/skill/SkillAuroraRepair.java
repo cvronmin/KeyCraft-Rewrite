@@ -1,6 +1,7 @@
 package org.nulla.kcrw.skill;
 
 import org.nulla.kcrw.KeyCraft_Rewrite;
+import org.nulla.nullacore.api.skill.SkillPassive;
 
 import net.minecraft.util.ResourceLocation;
 

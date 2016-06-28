@@ -22,12 +22,12 @@ public class KCUniteRenderFactory<T extends Entity> implements IRenderFactory<T>
 	private final Object[] ctorArgs;
 	private boolean needRI = false;
 
-	public KCUniteRenderFactory(Class<? extends Render> render, Object[] ctor) {
+	public KCUniteRenderFactory(Class<? extends Render> render, Object... ctor) {
 		renderclass = render;
 		ctorArgs = ctor;
 	}
 
-	public KCUniteRenderFactory(Class<? extends Render> render, Object[] ctor, boolean needItemRender) {
+	public KCUniteRenderFactory(Class<? extends Render> render, boolean needItemRender, Object... ctor) {
 		this(render, ctor);
 		needRI = needItemRender;
 	}

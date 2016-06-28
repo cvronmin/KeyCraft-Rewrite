@@ -4,9 +4,9 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 import org.nulla.kcrw.KCClientProxy;
 import org.nulla.kcrw.KCResources;
-import org.nulla.kcrw.skill.Skill;
-import org.nulla.kcrw.skill.SkillPassive;
-import org.nulla.kcrw.skill.SkillUtils;
+import org.nulla.nullacore.api.skill.Skill;
+import org.nulla.nullacore.api.skill.SkillPassive;
+import org.nulla.nullacore.api.skill.SkillUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -22,7 +22,6 @@ import net.minecraft.client.settings.GameSettings;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -126,7 +125,7 @@ public class KCClientUtils {
 	 * 绘制HUD上的欧若拉条。<BR/>
 	 * width，height代表屏幕的宽高。
 	 */
-	public static void drawAuroraStrip(int width, int height) {
+	/*public static void drawAuroraStrip(int width, int height) {
 
 		initDrawerState();
 
@@ -158,7 +157,7 @@ public class KCClientUtils {
 		fontRenderer.drawStringWithShadow(info, width - 105, height - 3, color);
 		initDrawerState();
 		getMC().renderEngine.bindTexture(Gui.icons);
-	}
+	}*/
 
 	/**
 	 * 初始化（绘制器的）撞钛鸡。
@@ -172,7 +171,7 @@ public class KCClientUtils {
 	 * 绘制HUD上的技能槽。<BR/>
 	 * width，height代表屏幕的宽高。
 	 */
-	public static void drawSkillSlot(int width, int height) {
+	/*public static void drawSkillSlot(int width, int height) {
 
 		initDrawerState();
 
@@ -237,7 +236,7 @@ public class KCClientUtils {
 		initDrawerState();
 		GL11.glDisable(GL11.GL_BLEND);
 		getMC().renderEngine.bindTexture(Gui.icons);
-	}
+	}*/
 
 	/**
 	 * register an item's renderer

@@ -1,9 +1,10 @@
 package org.nulla.kcrw.client.gui;
 
 import org.nulla.kcrw.client.KCClientUtils;
-import org.nulla.kcrw.skill.Skill;
-import org.nulla.kcrw.skill.SkillUtils;
-import org.nulla.kcrw.skill.Skills;
+import org.nulla.nullacore.api.skill.Skill;
+import org.nulla.nullacore.api.skill.SkillPassive;
+import org.nulla.nullacore.api.skill.SkillUtils;
+import org.nulla.nullacore.api.skill.Skills;
 
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
@@ -49,8 +50,7 @@ public class GuiSwitchSkill extends KCGuiBase {
 			btnOptionalSkill = new GuiButtonImage[optionalSkillNumber];
 
 			for (int i = 0; i < optionalSkillNumber; i++) {
-				buttonList.add(btnOptionalSkill[i] = new GuiButtonImage(i + 100, (int) (width * (0.28 + 0.06 * i)) - 8,
-						(int) (height * 0.6), 16, 16, optionalSkill[i].mIcon, true));
+				buttonList.add(btnOptionalSkill[i] = new GuiButtonImage(i + 100, (int)(width * (0.28 + 0.06 * (i % 8))) - 8, (int)(height * (0.5 + i / 8 * 0.1)), 16, 16, optionalSkill[i].mIcon, true));
 			}
 		}
 	}
@@ -68,6 +68,11 @@ public class GuiSwitchSkill extends KCGuiBase {
 		if (currentState != -1) {
 			for (int i = 0; i < btnOptionalSkill.length; i++) {
 				if (button.equals(btnOptionalSkill[i])) {
+					Skill toChange = SkillUtils.getSkillInSlot(skillOwner, i);
+					if (toChange instanceof SkillPassive) {
+						if (((SkillPassive) toChange).getIsOn(skillOwner))
+							toChange.useSkill(skillOwner);
+					}
 					SkillUtils.setSkillInSlot(skillOwner, currentState, optionalSkill[i], true);
 					currentState = -1;
 				}

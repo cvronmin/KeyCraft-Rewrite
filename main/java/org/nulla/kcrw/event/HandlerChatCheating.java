@@ -1,9 +1,9 @@
 package org.nulla.kcrw.event;
 
-import org.nulla.kcrw.skill.Skill;
-import org.nulla.kcrw.skill.SkillNetwork;
-import org.nulla.kcrw.skill.SkillUtils;
-import org.nulla.kcrw.skill.Skills;
+import org.nulla.nullacore.api.skill.Skill;
+import org.nulla.nullacore.api.skill.SkillNetwork;
+import org.nulla.nullacore.api.skill.SkillUtils;
+import org.nulla.nullacore.api.skill.Skills;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.potion.Potion;

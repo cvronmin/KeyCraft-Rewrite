@@ -1,6 +1,6 @@
 package org.nulla.kcrw.entity;
 
-import org.nulla.kcrw.skill.SkillUtils;
+import org.nulla.nullacore.api.skill.SkillUtils;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

@@ -2,6 +2,9 @@ package org.nulla.kcrw.skill;
 
 import org.nulla.kcrw.KCItems;
 import org.nulla.kcrw.KeyCraft_Rewrite;
+import org.nulla.nullacore.api.skill.Skill;
+import org.nulla.nullacore.api.skill.SkillUtils;
+import org.nulla.nullacore.api.skill.Skills;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -33,7 +36,7 @@ public class SkillAuroraBlade extends Skill {
 	/** ����ŷ��������ꪻ� */
 	public static void recycleAurora(EntityPlayer player, double proportion) {
 		if (proportion == 0) {
-			SkillUtils.modifyAuroraPoint(player, (int) (Skills.SkillAuroraBlade.mAuroraCost * 0.5F));
+			SkillUtils.modifyAuroraPoint(player, (int) (SkillsRw.AuroraBlade.mAuroraCost * 0.5F));
 		} else {
 			if (!player.worldObj.isRemote) {
 				player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("keycraft.prompt.recyclerate") 

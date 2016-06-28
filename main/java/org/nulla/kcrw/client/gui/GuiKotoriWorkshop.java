@@ -1,12 +1,14 @@
 package org.nulla.kcrw.client.gui;
 
+import java.util.ArrayList;
+
 import org.nulla.kcrw.KCNetwork;
 import org.nulla.kcrw.KCResources;
 import org.nulla.kcrw.KCUtils;
 import org.nulla.kcrw.client.KCClientUtils;
 import org.nulla.kcrw.item.KCItemBase;
 import org.nulla.kcrw.item.crafting.KCRecipe;
-import org.nulla.kcrw.skill.SkillUtils;
+import org.nulla.nullacore.api.skill.SkillUtils;
 
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,7 +26,8 @@ public class GuiKotoriWorkshop extends KCGuiBase {
 	private GuiButtonImage btnChooseDecompose;
 	private GuiButtonImage btnChooseReturn;
 	private GuiButtonImage btnEnsureCraft;
-	private GuiButtonImage btnCraft[] = new GuiButtonImage[99];
+	//private GuiButtonImage btnCraft[] = new GuiButtonImage[99];
+	private ArrayList<GuiButtonImage> btnCraft = new ArrayList<GuiButtonImage>();
 
 	private KCItemBase currentCraftItem = null;
 
@@ -53,7 +56,9 @@ public class GuiKotoriWorkshop extends KCGuiBase {
 
 	@Override
 	public void drawScreen(int par1, int par2, float par3) {
-		this.drawDefaultBackground();
+		drawRect(0, 0, width, height, 0xAF000000);
+		KCClientUtils.initDrawerState();
+
 		mc.renderEngine.bindTexture(KCResources.gui_kotori_workshop);
 		KCClientUtils.drawScaledCustomSizeModalRect(0, 0, 0, 0, 1280, 1200, width, height, 1280, 1200);
 
@@ -82,7 +87,7 @@ public class GuiKotoriWorkshop extends KCGuiBase {
 				fontRendererObj.drawStringWithShadow(
 						StatCollector.translateToLocal("kcrw.gui.currentCraftItemInBag") + ": "
 								+ KCUtils.getNumberOfItemInPlayer(crafter, currentCraftItem),
-						zhong + 10, shang + 55, 0xAFAFAF);
+								zhong + 10, shang + 55, 0xAFAFAF);
 				fontRendererObj.drawStringWithShadow(StatCollector.translateToLocal("kcrw.gui.needs") + ":", zhong + 10,
 						shang + 75, 0xAFAFAF);
 
@@ -129,9 +134,10 @@ public class GuiKotoriWorkshop extends KCGuiBase {
 				craft(currentCraftItem, crafter);
 			}
 		} else {
-			for (int i = 0; i < 99; i++) {
-				if (button.equals(btnCraft[i])) {
-					currentCraftItem = (KCItemBase) KCRecipe.getCraftItemFromNumber(i);
+			for (GuiButtonImage i : btnCraft) {
+				if (button.equals(i)) {
+					currentCraftItem = (KCItemBase) Item.getItemById(i.id);
+					//System.out.println(currentCraftItem);
 				}
 			}
 		}
@@ -139,12 +145,13 @@ public class GuiKotoriWorkshop extends KCGuiBase {
 	}
 
 	private void addCraftButton() {
-		buttonList.add(btnCraft[0] = new GuiButtonImage(0, (int) (width * 0.15), (int) (height * 0.4), 32, 32,
-				KCResources.item_peach_juice, true));
-		buttonList.add(btnCraft[1] = new GuiButtonImage(1, (int) (width * 0.15 + 36), (int) (height * 0.4), 32, 32,
-				KCResources.item_music_player, true));
-		buttonList.add(btnCraft[2] = new GuiButtonImage(2, (int) (width * 0.15 + 72), (int) (height * 0.4), 32, 32,
-				KCResources.item_aurora_iron_ingot, true));
+		int pos = 0;
+		for (Item i : KCRecipe.getItemCraftable(crafter)) {
+			int id = Item.getIdFromItem(i);
+			btnCraft.add(new GuiButtonImage(id, (int)(width * 0.15 + pos % 3 * 36), (int)(height * 0.4 + pos / 3 * 36), 32, 32, KCResources.getResourcebyID(id), true));
+			pos++;
+		}
+		buttonList.addAll(btnCraft);
 	}
 
 	private boolean isEnough(int i) {
@@ -193,5 +200,11 @@ public class GuiKotoriWorkshop extends KCGuiBase {
 	@Override
 	public boolean doesGuiPauseGame() {
 		return false;
+	}
+	@Override
+	public void refresh() {
+		buttonList.clear();
+		btnCraft.clear();
+		this.initGui();
 	}
 }

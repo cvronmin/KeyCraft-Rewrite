@@ -1,6 +1,7 @@
 package org.nulla.kcrw.entity;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
@@ -20,6 +21,7 @@ public class EntityBaseball extends KCEntityThrowable {
 	protected Vec3 XZVec;
 
 	protected boolean isExplosive = false;
+	protected boolean isThundering = false;
 
 	public EntityBaseball(World world) {
 		super(world, 0.25f, 0.25F);
@@ -32,12 +34,14 @@ public class EntityBaseball extends KCEntityThrowable {
 	public EntityBaseball(World world, EntityLivingBase thrower, String skill) {
 		this(world, thrower, 0.25F, 0.25F, 0.03F);
 		this.mSkill = skill;
-		if (skill == "explosion") {
+		if (skill == "explosion") 
 			this.isExplosive = true;
-		}
-		if (skill == "rolling") {
+		if (skill == "thundering")
+			this.isThundering = true;
+		if (skill == "rolling") 
 			this.velocityDecreaseRate = 1F;
-		}
+		if (skill == "falling")
+			this.motionY += 0.5F;
 	}
 
 	public EntityBaseball(World world, EntityLivingBase thrower, float width, float height, float gravity) {
@@ -49,15 +53,20 @@ public class EntityBaseball extends KCEntityThrowable {
 		if (target.entityHit != null) {
 			EntityLivingBase thrower = this.getThrower();
 			if (thrower instanceof EntityPlayer) {
-				target.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, thrower), DAMAGE_NO_SKILL);
+				if (this.mSkill == "falling" || this.mSkill == "rolling")
+					target.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, thrower), DAMAGE_NO_SKILL);
+				else
+					target.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, thrower), DAMAGE_HAS_SKILL);
 			} else {
 				target.entityHit.attackEntityFrom(
 						DamageSource.causeThrownDamage(this, thrower == null ? this : thrower), DAMAGE_NO_SKILL);
 			}
 		}
-		if (isExplosive) {
+		if (isExplosive) 
 			this.worldObj.createExplosion(thrower, posX, posY, posZ, 5.0F, false);
-		}
+
+		if (this.isThundering)
+			this.worldObj.addWeatherEffect(new EntityLightningBolt(this.worldObj, posX, posY, posZ));
 
 		if (!this.worldObj.isRemote) {
 			this.setDead();
@@ -88,6 +97,9 @@ public class EntityBaseball extends KCEntityThrowable {
 		if (mSkill == "rolling") {
 			this.motionX += this.XZVec.zCoord * Math.cos(this.ticksInAir * Math.PI / 10) * 0.5F;
 			this.motionZ += this.XZVec.xCoord * Math.cos(this.ticksInAir * Math.PI / 10) * 0.5F;
+		}
+		if (mSkill == "falling") {
+			this.mGravity += 0.01F;
 		}
 	}
 

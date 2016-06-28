@@ -1,26 +1,14 @@
 package org.nulla.kcrw;
 
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.GL11;
-import org.nulla.kcrw.skill.Skill;
-import org.nulla.kcrw.skill.SkillPassive;
-import org.nulla.kcrw.skill.SkillUtils;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.Gui;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.WorldRenderer;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.client.settings.GameSettings;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Vec3;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class KCUtils {
+	public static final Vec3 zero = new Vec3(0, 0, 0);
 		
 	public static void exchange(Object a, Object b) {
 		Object c;
